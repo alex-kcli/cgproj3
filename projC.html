@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Project C</title>
+    </head>
+    <body onload="main()">
+        <canvas id="webgl" width="600" height="600">
+        Please use the browser supporting "canvas";
+        </canvas>
+        Current Material: <a id="currMtrl"> </a>, Barbell(Back): PEARL, Barbell(Left): GOLD SHINY, T-frame: CHROME, Podium: CHROME <br>
+        Current Shading/Lighting: <a id="currShade"> </a>
+        <br><br>
+        <table style="border:1px solid black; margin-left:auto; margin-right:auto; padding:2px; border-spacing:10px;">
+            <tr>
+                <td>Gourand Shading: </td>
+                <td><button type="button" onclick="gouraudBlinntoggle()">Gourand Shading + Blinn-Phong Lighting</button></td>
+                <td><button type="button" onclick="gouraudPhongtoggle()">Gourand Shading + Phong Lighting</button></td>
+            </tr>
+            <tr>
+                <td>Phong Shading: </td>
+                <td><button type="button" onclick="phongBlinntoggle()">Phong Shading + Blinn-Phong Lighting</button></td>
+                <td><button type="button" onclick="phongPhongtoggle()">Phong Shading + Phong Lighting</button></td>
+            </tr>
+        </table>
+        <br>
+        <div class="slidecontainer"> Light location: x_axis (left-right)
+            <input type="range" min="-10.0" max="10.0" value="0.0" class="slider" id="x_axis_val">
+            y_axis (in-out)
+            <input type="range" min="-10.0" max="16.0" value="3.0" class="slider" id="y_axis_val">
+            z_axis (up-down)
+            <input type="range" min="-16.0" max="10.0" value="-3.0" class="slider" id="z_axis_val">
+        </div>
+        <label for="colorpicker">Ambient Light Color:</label>
+        <input type="color" id="ambient" value="#7f7f7f" onclick="getColorValue()">
+
+        <label for="colorpicker">Diffuse Light Color:</label>
+        <input type="color" id="diffuse" value="#7f7f7f" onclick="getColorValue()">
+
+        <label for="colorpicker">Specular Light Color:</label>
+        <input type="color" id="specular" value="#7f7f7f" onclick="getColorValue()">
+        <br><br>
+        <em>Key Instructions:</em> <br>
+        Use 'wasd' to move camera location: 'w' to zoom in, 's' to zoom out, 'a' to move left, 'd' to move right.<br>
+        Use 'tfgh' to tilt or pan the camera: 't' to tilt up, 'g' to tilt down, 'f' to pan left, 'h' to pan right.<br>
+        Use 'm' to switch material.<br>
+        Use 'o' to turn light on or off.<br>
+
+        <script src="./lib/webgl-utils.js"></script>
+        <script src="./lib/webgl-debug.js"></script>
+        <script src="./lib/cuon-utils.js"></script>
+        <script src="./lib/cuon-matrix-quat03.js"></script>
+        <script src="./lib/materials_Ayerdi04.js"></script>
+        <script src="./lib/lights-JT.js"></script>
+        <script src="./projC_Lib.js"></script>
+        <script src="./projC.js"></script>
+    </body>
+</html>
